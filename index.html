@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASK — Premium Local Products Delivered Fast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#000000;
+      --gold:#D4AF37;
+      --white:#ffffff;
+      --muted:rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max-width:1100px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--black) 0%, #080808 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:32px}
+
+    /* NAV */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 32px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo svg{width:42px;height:42px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:2px}
+    .brand span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+    nav ul{display:flex;gap:18px;align-items:center;list-style:none;margin:0;padding:0}
+    nav a{color:var(--white);text-decoration:none;font-weight:500}
+    .cta{background:linear-gradient(90deg,var(--gold),#bfa134);color:#000;padding:10px 16px;border-radius:10px;font-weight:700;box-shadow:0 6px 18px rgba(212,175,55,0.12)}
+
+    /* HERO */
+    .hero{padding:68px 0;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .hero-left h2{font-size:40px;margin:0 0 12px}
+    .tagline{font-size:18px;color:var(--muted);max-width:56ch}
+    .hero-actions{margin-top:22px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);font-weight:600}
+    .btn.primary{background:var(--gold);color:#000;border:none}
+
+    .card-hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:24px;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.03)}
+    .product-sample{display:flex;flex-direction:column;gap:12px}
+    .product-sample img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+
+    /* PRODUCTS */
+    .products{padding:36px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--glass);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);transition:transform .28s ease,box-shadow .28s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+    .card h3{margin:12px 0 6px;font-size:16px}
+    .price{font-weight:700;color:var(--gold)}
+    .card .order{margin-top:10px}
+
+    /* ABOUT */
+    .about{display:flex;gap:24px;align-items:center;padding:36px 0}
+    .about p{color:var(--muted);margin:0}
+
+    /* CONTACT */
+    .contact{padding:36px 0}
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:var(--white)}
+    textarea{grid-column:1/-1;min-height:120px}
+    .socials{display:flex;gap:12px;align-items:center}
+
+    footer{padding:20px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .product-sample img{height:180px}
+    }
+    @media (max-width:640px){
+      nav ul{display:none}
+      .nav{padding:12px 18px}
+      .grid{grid-template-columns:1fr}
+      .hero-left h2{font-size:28px}
+      .brand h1{font-size:16px}
+      .form{grid-template-columns:1fr}
+    }
+
+    /* small touches */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- Pentagram as the 'A' in ASK -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0%" stop-color="#D4AF37" />
+                <stop offset="100%" stop-color="#bfa134" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" stroke="url(#g1)" stroke-width="3" fill="none" />
+            <polygon points="50,8 61,38 94,38 67,57 77,88 50,70 23,88 33,57 6,38 39,38" fill="url(#g1)" />
+          </svg>
+        </div>
+        <div>
+          <h1>ASK</h1>
+          <span>Local Premium Products Dropshipping</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="#products">Shop Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <h2>ASK — Local Premium Products Delivered Fast.</h2>
+        <p class="tagline">We partner with local makers across Kenya to bring you handpicked, high-quality products — packaged and delivered with a luxury feel, at everyday prices.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#products">Shop Products</a>
+          <a class="btn" href="#contact">Order on WhatsApp</a>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:12px;align-items:center">
+          <div style="padding:12px;border-radius:10px;background:var(--muted);font-weight:600">Free delivery in Nairobi over KSh 2,000</div>
+          <div style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03)">Secure local payments</div>
+        </div>
+      </div>
+
+      <aside class="card-hero">
+        <div class="product-sample">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Sample local product">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Nike Airforce for Men</div>
+              <div class="muted" style="font-size:13px">From Local Business, premium product</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">KSh 1,750</div>
+              <div style="margin-top:8px"><a class="btn" href="#contact">Order</a></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products" class="products">
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:18px">
+        <div>
+          <h3 style="margin:0">Featured Products</h3>
+          <div class="muted">Quality local items curated for you</div>
+        </div>
+        <div class="muted">Showing 6 items</div>
+      </div>
+
+      <div class="grid">
+        <!-- product card 1 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1600180758895-2c4f0b1b7a28?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Turmeric Glowing Bar Soap</h3>
+          <div class="muted">With Natural Ingredients<br>✨ Brightens Skin<br>👩 Fades Dark Spots<br>🍃 Natural & Gentle<br>🩸For a Healthy Glow</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 250</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Handcrafted%20Soap%20Set%20(420%20KES)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+        <!-- product card 2 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Flower pots</h3>
+          <div class="muted">Perfect for home organization</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 2,500</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Woven%20Basket%20(650%20KES)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+        <!-- product card 3 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1585386959984-a415522d4fc0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Ceramic Serving Plate</h3>
+          <div class="muted">Made by local artisans</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 1,200</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Ceramic%20Serving%20Plate%20(1200%20KES)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+        <!-- product card 4 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542332213-51f4b34b57d3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Local Coffee Beans (250g)</h3>
+          <div class="muted">Fresh roasted, bold flavour</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 550</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Local%20Coffee%20Beans%20(250g)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+        <!-- product card 5 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1602524208372-0a6f1f7a9a8b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Beaded Necklace</h3>
+          <div class="muted">Hand-beaded — elegant design</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 850</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Beaded%20Necklace%20(850%20KES)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+        <!-- product card 6 -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Product">
+          <h3>Hand-stitched Wallet</h3>
+          <div class="muted">Premium leather-feel finish</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div class="price">KSh 1,450</div>
+            <div class="order"><a class="btn" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20order%20the%20Hand-stitched%20Wallet%20(1450%20KES)" target="_blank">Order on WhatsApp</a></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div style="flex:1">
+        <h3>About ASK</h3>
+        <p class="muted">ASK is a local products dropshipping model (LPDM) focused on sourcing premium items from Kenyan makers and delivering them with speed and care. We believe local products should look and feel premium while remaining affordable. Supporting local artisans and small businesses is at the heart of everything we do.</p>
+      </div>
+      <div style="width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px">How ASK works</div>
+        <ol class="muted" style="padding-left:16px;margin:0">
+          <li>We list high-quality local products.</li>
+          <li>You place an order (WhatsApp or form).</li>
+          <li>We coordinate delivery & payment.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contact & Orders</h3>
+      <div class="muted" style="margin-bottom:14px">Quick order via WhatsApp or leave a message below and we'll reach out.</div>
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <div style="background:var(--glass);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+            <div style="font-weight:700">Order on WhatsApp</div>
+            <div class="muted" style="margin-top:8px">Quick — reply within business hours</div>
+            <div style="margin-top:12px"><a class="btn primary" href="https://wa.me/+254790500904?text=Hi%20ASK%2C%20I%20want%20to%20place%20an%20order" target="_blank">Message on WhatsApp</a></div>
+            <div style="margin-top:12px" class="muted">Phone: <strong>+254790500904</strong></div>
+            <div style="margin-top:12px" class="socials muted">Instagram • TikTok • Facebook</div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <form id="contactForm" class="card" onsubmit="return submitForm(event)">
+            <input id="name" placeholder="Your name" required>
+            <input id="phone" placeholder="Phone number" required>
+            <input id="product" placeholder="Product name (or 'General inquiry')" required>
+            <textarea id="message" placeholder="Any details (location, preferred delivery time)"></textarea>
+            <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+              <button type="submit" class="btn">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="center">
+      <div class="muted">© <span id="year"></span> ASK — Local Premium Products Dropshipping. All rights reserved.</div>
+    </footer>
+  </main>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // contact form handling: open WhatsApp with message or show a thank-you
+    function submitForm(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+      const product = encodeURIComponent(document.getElementById('product').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+      const text = Hi ASK, I am ${name}. I want to order: ${product}. Phone: ${phone}. ${message};
+      // Replace YOUR_PHONE_NUMBER below with your WhatsApp-enabled number in international format (e.g. 2547XXXXXXXX)
+      const phoneNumber = '+254790500904';
+      const url = https://wa.me/${phoneNumber}?text=${text};
+      window.open(url,'_blank');
+      // optional: show a quick toast (basic)
+      showToast('Opening WhatsApp to complete your order...');
+      return false;
+    }
+
+    function showToast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      Object.assign(t.style,{position:'fixed',right:'20px',bottom:'20px',padding:'12px 16px',background:'#111',border:'1px solid rgba(255,255,255,0.04)',borderRadius:'10px',color:'white',zIndex:9999,boxShadow:'0 8px 30px rgba(0,0,0,0.7)'});
+      document.body.appendChild(t);
+      setTimeout(()=>{t.style.opacity='0';t.addEventListener('transitionend',()=>t.remove())},2200);
+    }
+
+  </script>
+</body>
+</html>
